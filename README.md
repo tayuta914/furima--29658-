@@ -15,7 +15,9 @@
 | email           | string     | null: false 　　　　　　　　　   |
 
 ### Association
+- has_many :items
 - has_many :orders
+- belongs_to
 
 ## items テーブル
 
@@ -25,29 +27,34 @@
 | text           | text       | null: false                    |
 | condition_id   | integer    | null: false                    |
 | price          | integer    | null: false                    |
-| category_id    | integer    | null: false, foreign_key: true |
-| shopping_id    | intger     | null: false, foreign_key: true |
-| brand_id       | integer    | null: false, foreign_key: true |
-| seller_user_id | integer    | null: false, foreign_key: true |
+| category_id    | integer    | null: false                    |
+| shopping_id    | intger     | null: false                    |
+| user_id        | integer    | null: false                    |
 | trading_status | integer    | null: false                    |
 
 ### Association
-- has_many :users
 - belongs_to :user
 
-## orders
-s テーブル
+## orders テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | buyer_user_id | references | null: false, foreign_key: true |
 | item_id       | references | null: false, foreign_key: true |
-| customers_email_address | varchar | null: false             |
-| customers_state         | varchar | null: false             |
-| customers_city          | varchar | null: false             |
-| customers_telephone     | varcher | null: false             |
 
 ### Association
-
 - belongs_to :user
 - belongs_to :item
+
+## address テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| customers_state         | string | null: false              |
+| customers_city          | string | null: false              |
+| customers_telephone     | string | null: false              |
+
+### Association
+- belongs_to :user
+- belongs_to :item
+- belongs_to :order
