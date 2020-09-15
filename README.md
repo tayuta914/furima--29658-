@@ -53,13 +53,12 @@
 
 | Column                  | Type      | Options             |   
 | ----------------------- | ----------| -------------------- |
-| state                   | string    | null: false          |  
-| city                    | string    | null: false          |  
+| prefecture_id           | intger    | null: false          |  
+| city                    | string    | null: false          | 
+| building                | string    | null: false          | 
 | telephone               | string    | null: false          |  
 | postal_code             | string    | null: false          | 
-| cc_number               | string    | null: false          |
-| cc_expires              | string    | null: false          |
-| code                    | string    | null: false          | | orders_id              | references| null: false,       foreign_key: true |
+| orders                  | references| null: false,       foreign_key: true |
 
 ### Association
 - belongs_to :order
