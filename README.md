@@ -47,7 +47,7 @@
 - belongs_to :user
 - belongs_to :item
 
-## address テーブル
+## personals テーブル
 
 | Column                  | Type   | Options                  |
 | ----------------------- | ------ | ------------------------ |
@@ -55,6 +55,9 @@
 | customers_city          | string | null: false              |
 | customers_telephone     | string | null: false              |
 | customers_email_address | string | null: false              |
+| cc_number               | string | null: false              |
+| cc_expires              | string | null: false              |
+| code                    | string | null: false              |
 
 ### Association
 - belongs_to :order
