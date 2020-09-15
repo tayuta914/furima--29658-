@@ -35,7 +35,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :order
+- has_one :order
 
 ## orders テーブル
 
@@ -43,7 +43,7 @@
 | ------------- | ---------- | ------------------------------ |
 | user　　　　　　| references | null: false, foreign_key: true |
 | item     　　　| references | null: false, foreign_key: true |
-| personal      | references | null: false, foreign_key: true |
+| orders_id     | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
