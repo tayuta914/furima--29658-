@@ -43,7 +43,6 @@
 | ------------- | ---------- | ------------------------------ |
 | user　　　　　　| references | null: false, foreign_key: true |
 | item     　　　| references | null: false, foreign_key: true |
-| orders_id     | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -52,15 +51,15 @@
 
 ## personals テーブル
 
-| Column                  | Type   | Options                  |
-| ----------------------- | ------ | ------------------------ |
-| state                   | string | null: false              |
-| city                    | string | null: false              |
-| telephone               | string | null: false              |
-| postal_code             | string | null: false              |
-| cc_number               | string | null: false              |
-| cc_expires              | string | null: false              |
-| code                    | string | null: false              |
+| Column                  | Type      | Options             |   
+| ----------------------- | ----------| -------------------- |
+| state                   | string    | null: false          |  
+| city                    | string    | null: false          |  
+| telephone               | string    | null: false          |  
+| postal_code             | string    | null: false          | 
+| cc_number               | string    | null: false          |
+| cc_expires              | string    | null: false          |
+| code                    | string    | null: false          | | orders_id              | references| null: false,       foreign_key: true |
 
 ### Association
 - belongs_to :order
