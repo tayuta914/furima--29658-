@@ -28,36 +28,40 @@
 | price           | integer    | null: false                   |
 | category        | integer    | null: false                   |
 | shipping_status | intger     | null: false                   |
-| user_id         | integer    | null: false                   |
+| user_id         | integer    | null: false, foreign_key: true|
 | trading_status  | integer    | null: false                   |
 | days_ship       | integer    | null: false                   |
 
 
 ### Association
 - belongs_to :user
+- belongs_to :order
 
 ## orders テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| user_id       | references | null: false, foreign_key: true |
-| item_id       | references | null: false, foreign_key: true |
+| user　　　　　　| references | null: false, foreign_key: true |
+| item     　　　| references | null: false, foreign_key: true |
+| personal      | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to :item
+- has_one: personal
 
 ## personals テーブル
 
 | Column                  | Type   | Options                  |
 | ----------------------- | ------ | ------------------------ |
-| customers_state         | string | null: false              |
-| customers_city          | string | null: false              |
-| customers_telephone     | string | null: false              |
-| customers_email_address | string | null: false              |
+| state                   | string | null: false              |
+| city                    | string | null: false              |
+| telephone               | string | null: false              |
+| postal_code             | string | null: false              |
 | cc_number               | string | null: false              |
 | cc_expires              | string | null: false              |
 | code                    | string | null: false              |
 
 ### Association
 - belongs_to :order
+
