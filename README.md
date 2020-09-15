@@ -30,8 +30,7 @@
 | shipping_status | intger     | null: false                   |
 | user_id         | integer    | null: false, foreign_key: true|
 | trading_status  | integer    | null: false                   |
-| days_ship       | integer    | null: false                   |
-
+| days_ship       | integer    | null: false                   || prefecture_id   | integer    | null: false                   |
 
 ### Association
 - belongs_to :user
@@ -54,11 +53,12 @@
 | Column                  | Type      | Options             |   
 | ----------------------- | ----------| -------------------- |
 | prefecture_id           | intger    | null: false          |  
+| address                 | string    | null: false          |
 | city                    | string    | null: false          | 
-| building                | string    | null: false          | 
+| building                | string    |                      | 
 | telephone               | string    | null: false          |  
 | postal_code             | string    | null: false          | 
-| orders                  | references| null: false,       foreign_key: true |
+| order                   | references| null: false,       foreign_key: true |
 
 ### Association
 - belongs_to :order
