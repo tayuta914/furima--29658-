@@ -4,20 +4,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-        validates :nickname, presence: true, length: { minimum: 6 }
+  validates :nickname, presence: true, length: { minimum: 6 }
+
+  name_RegExp =  /\A([ぁ-んァ-ン一-龥]|ー)+\z/
+  with_options presence: true,format: { with:name_RegExp} do
+  validates :first_name
+  validates :last_name
+  end
     
-        validates :first_name,
-          format: { with: /\A([ぁ-んァ-ン一-龥]|ー)+\z/},
-          presence: true
-        validates :last_name,
-          format: { with: /\A([ぁ-んァ-ン一-龥]|ー)+\z/},
-          presence: true
-        validates :first_name_kana,
-          format: { with: /\A([ァ-ン]|ー)+\z/},
-          presence: true
-        validates :last_name_kana,
-          format: { with: /\A([ァ-ン]|ー)+\z/},
-          presence: true
-        validates :birthday,
-          presence: true
+  kana_RegExp = /\A([ァ-ン]|ー)+\z/
+  with_options presence: true,format: { with:kana_RegExp} do
+  validates :first_name_kana
+  validates :last_name_kana
+  end
+  
+  validates :birthday,
+    presence: true
 end
