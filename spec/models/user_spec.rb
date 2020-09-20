@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
       end
 
       it "生年月日があれば登録できる" do
-        @user.birthday = "20200918"
+        @user.birth_date = "20200918"
         @user.valid?
         expect(@user).to be_valid
       end
