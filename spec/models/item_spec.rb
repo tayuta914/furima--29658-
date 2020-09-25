@@ -82,10 +82,34 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include("Price is not included in the list")
         end
 
-      it "1が選択されたら出品できないこと" do
+      it "category1が選択されたら出品できないこと" do
         @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
+
+      it "condition1が選択されたら出品できないこと" do
+        @item.condition_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+      end
+
+      it "shipping_charge1が選択されたら出品できないこと" do
+        @item.shipping_charge_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping charge must be other than 1")
+      end
+
+      it "prefecture1が選択されたら出品できないこと" do
+        @item.prefecture_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+      end
+
+      it "day_ship1が選択されたら出品できないこと" do
+        @item.day_ship_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Day ship must be other than 1")
       end
     end
 end
