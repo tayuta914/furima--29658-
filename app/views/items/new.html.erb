@@ -1,3 +1,6 @@
+<%# <%= form_with(model: @user_purchase, url: purchase_path, local: true) do |form| %>
+  <%# <%= render 'error_messages', model: @user_purchase %> 
+
 <div class="items-sell-contents">
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
@@ -135,7 +138,7 @@
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "出品する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%= link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
