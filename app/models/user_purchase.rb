@@ -17,7 +17,7 @@ class UserPurchase
 
   def save
     # 購入の情報を保存
-    order = Order.create!(item_id: item_id, user_id: user_id)
+    order = Order.create(item_id: item_id, user_id: user_id)
     # 住所の情報を保存
     Personal.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, telephone: telephone, building: building, address: address, user_id: user_id, order_id: order.id)
   end

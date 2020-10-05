@@ -47,6 +47,12 @@ RSpec.describe UserPurchase, type: :model do
         expect(@user_purchase.errors.full_messages).to include("Telephone can't be blank")
       end
 
+      it 'telephoneが半角のハイフンを含んだ形式だと保存できないこと' do
+        @user_purchase.telephone = '080-211-1234'
+        @user_purchase.valid?
+        expect(@user_purchase.errors.full_messages).to include("Telephone is invalid")
+      end
+
       it 'buildingは空でも保存できること' do
         @user_purchase.building = ""
         expect(@user_purchase).to be_valid
