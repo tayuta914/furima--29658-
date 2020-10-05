@@ -1,9 +1,10 @@
-class OrdersController < ApplicationController
+class OrdersController  < ApplicationController
   before_action :set_order,only: [:index, :create]
   before_action :move_to_index, except: [:index]
+  before_action :authenticate_user!,only: [:index, :create, :show]
   
   def index
-    redirect_to root_path if current_user.id == @item.user.id || @item.order != nil
+    redirect_to root_path if current_user.id == @item.user_id || @item.order != nil
     @order = Order.new
   end
 
