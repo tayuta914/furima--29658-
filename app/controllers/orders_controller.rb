@@ -1,13 +1,12 @@
 class OrdersController < ApplicationController
+  before_action :set_order,only: [:index, :create]
   
   def index
-    redirect_to new_user_session_path unless user_signed_in?
+    if user redirect_to new_user_session_path unless user_signed_in?
     @order = Order.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order = UserPurchase.new(order_params)
     if @order.valid?
       pay_item
@@ -32,7 +31,10 @@ class OrdersController < ApplicationController
 
   def order_params
     params.permit(:postal_code, :prefecture_id, :city, :address, :building, :telephone, :token, :item_id).merge(user_id: current_user.id)
+  end
 
+  def set_order
+    @item = Item.find(params[:item_id])
   end
 
 end

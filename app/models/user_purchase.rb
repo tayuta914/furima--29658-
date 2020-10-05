@@ -7,11 +7,13 @@ class UserPurchase
   validates :telephone, format: {with: /\A\d{10}$|^\d{11}\z/}, presence: true
   # 「住所」の都道府県に関するバリデーション
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
-  validates :user_id, presence: true
-  validates :item_id, presence: true
-  validates :token, presence: true
-  validates :address, presence: true
-  validates :city, presence: true
+  with_options  presence: true do
+    validates :user_id
+    validates :item_id
+    validates :token
+    validates :address
+    validates :city
+  end
 
   def save
     # 購入の情報を保存
