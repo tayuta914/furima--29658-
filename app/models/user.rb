@@ -20,7 +20,10 @@ class User < ApplicationRecord
     validates :first_name_kana
     validates :last_name_kana
   end
+
   validates :birth_date, presence: true
+
+  validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i}, presence: true
 
    
 
