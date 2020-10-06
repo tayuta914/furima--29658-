@@ -70,7 +70,7 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include("Price is not included in the list")
         end
 
-        it "priceが99,9999円を超過すると保存できないこと" do
+        it "priceが9,999,999円を超過すると保存できないこと" do
           @item.price = 1,000,000
           @item.valid?
           expect(@item.errors.full_messages).to include("Price can't be blank")
