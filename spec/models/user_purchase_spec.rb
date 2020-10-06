@@ -56,6 +56,6 @@ RSpec.describe UserPurchase, type: :model do
       it 'buildingは空でも保存できること' do
         @user_purchase.building = ""
         expect(@user_purchase).to be_valid
-      end
+      end
   end
 end
