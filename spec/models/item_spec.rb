@@ -27,9 +27,85 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Text can't be blank")
       end
-      
+  
+        it "imageが空では保存できないこと" do
+          @item.image = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Image can't be blank")
+        end
+
+        it "nameが空では保存できないこと" do
+          @item.name = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Name can't be blank")
+        end
+        
+        it "textが空では保存できないこと" do
+          @item.text = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Text can't be blank")
+        end
+        
+        it "categoryが空では保存できないこと" do
+          @item.category_id = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Category can't be blank")
+        end
+
+        it "conditionが空では保存できないこと" do
+          @item.condition_id  = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Condition can't be blank")
+        end
+
+        it "shipping_chargeが空では保存できないこと" do
+          @item.shipping_charge_id = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Shipping charge can't be blank")
+        end
+
+        it "prefectureが空では保存できないこと" do
+          @item.prefecture_id = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+        end
+
+        it "day_shipが空では保存できないこと" do
+          @item.day_ship_id = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Day ship can't be blank")
+        end
+
+        it "priceが空では保存できないこと" do
+          @item.price = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Price can't be blank")
+        end
+
+        it "priceが300円未満だと保存できないこと" do
+          @item.price = 299
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Price is not included in the list")
+        end
+
+        it "priceが9,999,999円を超過すると保存できないこと" do
+          @item.price = 1,000,000
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Price can't be blank")
+        end
+
+        it "priceが全角数字だと保存できないこと" do
+          @item.price = "３００"
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Price is not included in the list")
+        end
+
+      it "category1が選択されたら出品できないこと" do
+        @item.category_id = 1
+
       it "categoryが空では保存できないこと" do
         @item.category_id = nil
+
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
