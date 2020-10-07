@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :items
   has_many :orders
 
-  validates :nickname, presence: true, length: { minimum: 6 }
+  validates :nickname, presence: true
 
   name_RegExp =  /\A([ぁ-んァ-ン一-龥]|ー)+\z/
   with_options presence: true,format: { with:name_RegExp} do
